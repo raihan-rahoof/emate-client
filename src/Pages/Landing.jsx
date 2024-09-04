@@ -3,6 +3,7 @@ import { Button } from "@nextui-org/button";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function Landing() {
   const {accessToken} = useSelector((state)=> state.authLogin)
@@ -12,6 +13,20 @@ function Landing() {
     navigate('/dashboard')
   }
   },[])
+
+  useEffect(()=>{
+    Swal.fire({
+      title: "Note!",
+      text: "Please note that our website is currently undergoing maintenance. As a result, the service may be temporarily unavailable for a few hours. We apologize for any inconvenience and appreciate your patience.",
+      imageUrl:
+        "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHZsY3plNmRtaTQ3bXN1MmFoNXU5ZXl4cnlhaWQ2bHY0OGQxdGF5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XaAbmtzzz35IgW3Ntn/giphy.gif",
+      imageWidth: 300,
+      imageHeight: 300,
+      confirmButtonColor: "#17C964",
+      titleColor:'red',
+      imageAlt: "Custom image",
+    });
+  },)
 
   return (
     <>
